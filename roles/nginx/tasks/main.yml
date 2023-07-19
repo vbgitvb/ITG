@@ -5,8 +5,8 @@
     state=latest
   when:
     ansible_os_family == "RedHat"
-  notify:
-    - nginx systemd
+#  notify:
+#    - nginx systemd
 
 - name: Install Nginx on Debian Family
   apt:
@@ -14,6 +14,6 @@
     state=latest
   when:
     ansible_os_family == "Debian"
-  notify:
-    - nginx systemd
+#  notify:
+#    - nginx systemd
 
