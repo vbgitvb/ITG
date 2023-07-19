@@ -4,17 +4,28 @@
     true
   vars:
     nginx_user: nginx  
+    worker_processes: 5  
+    worker_connections: 5
+    client_body_buffer_size: 10K;
+    client_header_buffer_size: 1k;
+    client_max_body_size: 8m;
+    large_client_header_buffers: 2 1k;
+
   roles:
    - sendkey
    - epel
    - nginx
+   - nginxcfg
 
 - hosts: debian
   become:
     true
   vars:
     nginx_user: www-data  
+    worker_processes: 5  
+    worker_conections: 5  
   roles:
    - sendkey
    - nginx
+   - nginxcfg
 
